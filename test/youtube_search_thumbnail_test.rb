@@ -9,4 +9,9 @@ class YoutubeSearchThumbnailTest < Minitest::Test
     url = "https://www.youtube.com/results?search_query=cat"
     puts YoutubeSearchThumbnail::get(url,0,"small")
   end
+
+  def test_it_works_on_different_encoding
+    url = "https://www.youtube.com/results?search_query=That\u{2019}S What I Like+Bruno Mars"
+    puts YoutubeSearchThumbnail::get(url,0,"small")
+  end
 end

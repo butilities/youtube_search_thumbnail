@@ -8,6 +8,7 @@ module YoutubeSearchThumbnail
 
   def self.get(url,num=1,size="medium")
     result=[]
+    url.delete!("^\u{0000}-\u{007F}")
     element = ".yt-lockup-title a"
     doc = Nokogiri::HTML(open(url))
     doc.css(element).each do |s|
